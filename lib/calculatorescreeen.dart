@@ -11,6 +11,7 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
+    final screenSize=MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -37,7 +38,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             // buttons
             Wrap(
               children:Btn.buttonValues.map(
-                (value) => buildButton(value),
+                (value) => SizedBox(
+                  width:screenSize.width/4 ,
+                  height:screenSize.width/5 ,
+
+                  child: buildButton(value)),
                 ).toList(),
               
               )
