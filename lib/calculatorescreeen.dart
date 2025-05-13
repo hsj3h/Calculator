@@ -1,3 +1,4 @@
+import 'package:calculator/buttons_value.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorScreen extends StatefulWidget {
@@ -35,14 +36,20 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         
             // buttons
             Wrap(
-              children: [
-
-            ],)
+              children:Btn.buttonValues.map(
+                (value) => buildButton(value),
+                ).toList(),
+              
+              )
         
         
           ],
         ),
       ),
     );
+  }
+  
+  Widget buildButton(value) {
+    return Text(value);
   }
 }
