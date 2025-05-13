@@ -10,9 +10,38 @@ class CalculatorScreen extends StatefulWidget {
 class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.pink,
+    return Scaffold(
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          
+          children: [
+            // Output
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  alignment: Alignment.bottomRight,
+                  padding: const EdgeInsets.all(16),
+                  child: Text("0",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 48
+                  ),textAlign: TextAlign.end,
+                  ),
+                ),
+              ),
+            ),
+        
+        
+            // buttons
+            Wrap(
+              children: [
+
+            ],)
+        
+        
+          ],
+        ),
       ),
     );
   }
