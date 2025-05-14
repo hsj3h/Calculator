@@ -9,6 +9,9 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
+  String number1 = "";   //0-9
+  String operand = "";  //+ - * /
+  String number2 = "";  //. 0-9
   @override
   Widget build(BuildContext context) {
     final screenSize=MediaQuery.of(context).size;
@@ -25,8 +28,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 child: Container(
                   alignment: Alignment.bottomRight,
                   padding: const EdgeInsets.all(16),
-                  child: Text("0",
-                  style: TextStyle(
+                  child: Text(
+                    "$number1$operand$number2".isEmpty?"0"
+                    :"$number1$operand$number2",
+                    
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 48
                   ),textAlign: TextAlign.end,
@@ -72,7 +78,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         child: InkWell(
           onTap:() {} ,
           child: Center(
-            child: Text(value)
+            child: Text(value,style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25),)
             ),
         ),
       ),
