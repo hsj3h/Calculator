@@ -161,7 +161,7 @@ appendValue(value);
     // ex:432+343
     if(number1.isNotEmpty&&operand.isNotEmpty&&number2.isNotEmpty){
     // calculate before conversion
-// todo   
+    calculate();
     }
 
     if(operand.isNotEmpty){
@@ -210,6 +210,7 @@ appendValue(value);
     //operand pressed
     if(operand.isNotEmpty&&number2.isNotEmpty){
       //todo calaculate the eqaution before assigning 
+      calculate();
 
     }
     operand = value;
