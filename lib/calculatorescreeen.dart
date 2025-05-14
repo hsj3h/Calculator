@@ -99,10 +99,40 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       clearAll();
       return;
     }
+    if(value==Btn.per){
+      convertToPercentage();
+      return;
+    }
+
+    
 appendValue(value);
 
   }
   // ########
+  // converts output into percentage
+  void convertToPercentage(){
+    // ex:432+343
+    if(number1.isNotEmpty&&operand.isNotEmpty&&number2.isNotEmpty){
+    // calculate before conversion
+    // TODO  
+   
+    }
+
+    if(operand.isNotEmpty){
+      // cannt be converted
+      return;
+    }
+    final number = double.parse(number1);
+    setState(() {
+      number1='${(number /100)}';
+      operand = '';
+      number2 = '';
+    });
+
+    
+  }
+
+
   // clears all output
   void clearAll(){
     setState(() {
