@@ -91,7 +91,45 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   ///
   
   void onBtnTap(String value){
-    // if is operand and not '.'
+    if(value==Btn.del){
+      delete();
+      return;
+    }
+    if(value==Btn.clr){
+      clearAll();
+      return;
+    }
+appendValue(value);
+
+  }
+  // ########
+  // clears all output
+  void clearAll(){
+    setState(() {
+      number1 = "";
+    operand = "";
+    number2 = "";
+    });
+  }
+
+  // delete one from the end
+  void delete(){
+    if(number2.isNotEmpty){
+      // 1234=1232
+      number2=number2.substring(0, number2.length - 1);
+    }else if (operand.isNotEmpty){
+      operand="";
+    }else if (number1.isNotEmpty){
+      number1 = number1.substring(0,number1.length - 1);
+    }
+    setState(() {
+      
+    });
+  }
+  // appends value to the end
+  
+  void appendValue(String value){
+ // if is operand and not '.'
     if(value!=Btn.dot&&int.tryParse(value)==null){
     //operand pressed
     if(operand.isNotEmpty&&number2.isNotEmpty){
@@ -136,6 +174,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
     });
   }
+
+  }
+   
   ///
 
 
@@ -153,4 +194,3 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           ?Colors.red
           :Colors.pink;
   }
-}
