@@ -76,7 +76,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           borderRadius: BorderRadius.circular(100)
         ),
         child: InkWell(
-          onTap:() {} ,
+          onTap:() => onBtnTap(value),
           child: Center(
             child: Text(value,style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -86,6 +86,59 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       ),
     );
   }
+  ///number 1 operand number1
+  ///
+  ///
+  
+  void onBtnTap(String value){
+    // if is operand and not '.'
+    if(value!=Btn.dot&&int.tryParse(value)==null){
+    //operand pressed
+    if(operand.isNotEmpty&&number2.isNotEmpty){
+      //todo calaculate the eqaution before assigning 
+
+    }
+    operand = value;
+  }
+  // assign sin value to nmber 1 variable
+  else if (number1.isEmpty || operand.isEmpty){
+    // check if value is '.' | ex:number1 = '1.2'
+
+
+    if(value==Btn.dot && number1.contains(Btn.dot)){return;}
+    if(value==Btn.dot && (number1.isEmpty || number1==Btn.n0)){
+      // ex:number 1='' | '0'
+      value='0.'; 
+
+
+    }
+    number1 += value;
+
+
+    
+  }
+  else if (number2.isEmpty || operand.isNotEmpty){
+
+    if(value==Btn.dot && number2.contains(Btn.dot)){return;}
+    if(value==Btn.dot && (number2.isEmpty || number2==Btn.n0)){
+      value='0.'; 
+
+
+    }
+    number2 += value;
+
+
+    
+  }
+    setState(() {
+         
+
+
+    });
+  }
+  ///
+
+
   Color getBtnColor(value){
     return 
     [Btn.del,Btn.clr].contains(value)?Colors.blueAccent
